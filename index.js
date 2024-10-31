@@ -23,12 +23,12 @@ io.on("connection", (socket) => {
     try {
       var latitude = parseFloat(data.latitude);
       var longitude = parseFloat(data.longitude);
-      const url = `https://roads.googleapis.com/v1/nearestRoads?points=${data.latitude},${data.longitude}&key=${process.env.GOOGLE_API_KEY}`;
-      const response = await axios.get(url);
-      if (response.data != {}) {
-        latitude = response.data?.snappedPoints?.[0]?.location.latitude;
-        longitude = response.data?.snappedPoints?.[0]?.location.longitude;
-      }
+      // const url = `https://roads.googleapis.com/v1/nearestRoads?points=${data.latitude},${data.longitude}&key=${process.env.GOOGLE_API_KEY}`;
+      // const response = await axios.get(url);
+      // if (response.data != {}) {
+      //   latitude = response.data?.snappedPoints?.[0]?.location.latitude;
+      //   longitude = response.data?.snappedPoints?.[0]?.location.longitude;
+      // }
       io.emit("location", {
         latitude,
         longitude,
